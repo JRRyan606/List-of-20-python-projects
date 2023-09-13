@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather API</title>
+</head>
+<body>
+    <h1>Weather API</h1>
+    <form method="post">
+        <label for="city">Select a city:</label>
+        <select id="city" name="city">
+            {% for city in cities %}
+                <option value="{{ city }}" {% if selected_city == city %}selected{% endif %}>{{ city }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Get Weather">
+    </form>
+
+    {% if weather_info %}
+        <h2>Weather Information for {{ selected_city }}</h2>
+        <ul>
+            {% for info in weather_info %}
+                <li>Date: {{ info.date }}, Temperature: {{ info.temperature }}°F, Humidity: {{ info.humidity }}%</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
