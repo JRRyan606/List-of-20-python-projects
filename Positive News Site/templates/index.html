@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Positive News</title>
+</head>
+<body>
+    <h1>Positive News</h1>
+    <ul>
+        {% for article in positive_news %}
+            <li>
+                <strong>{{ article.title }}</strong><br>
+                {{ article.description }}<br>
+                <a href="{{ article.url }}" target="_blank">Read more</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
